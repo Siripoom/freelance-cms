@@ -18,6 +18,21 @@ npm run dev
 npm run build
 ```
 
+## Vercel Deploy
+
+Use these settings when importing the GitHub repository into Vercel:
+
+- Framework Preset: `Next.js`
+- Root Directory: leave empty / repository root
+- Install Command: `npm install`
+- Build Command: `npm run build`
+- Output Directory: leave empty
+- Production Branch: `main`
+
+Add the same Firebase variables from `.env.local.example` in Vercel Project Settings > Environment Variables before deploying production.
+
+If the deployment returns `404: NOT_FOUND`, check that Output Directory is not set to `out`, `.next`, or `dist`, then redeploy the latest commit from `main`.
+
 ## Data Path
 
 All user data is stored under:
