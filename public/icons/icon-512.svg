@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Freelance CRM">
+  <rect width="512" height="512" rx="96" fill="#0f3d91"/>
+  <path d="M120 154h272v64H120zM120 250h180v42H120zM120 324h246v42H120z" fill="#fff"/>
+  <circle cx="376" cy="308" r="48" fill="#38bdf8"/>
+</svg>
