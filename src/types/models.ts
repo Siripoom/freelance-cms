@@ -1,14 +1,10 @@
 import type {
-  channels,
   customerSources,
   customerStatuses,
   customerTypes,
   documentTypes,
-  followupStatuses,
-  leadStatuses,
   paymentMethods,
   paymentStatuses,
-  priorities,
   projectStatuses,
   projectTypes,
 } from "@/lib/constants";
@@ -16,14 +12,10 @@ import type {
 export type CustomerType = (typeof customerTypes)[number];
 export type CustomerSource = (typeof customerSources)[number];
 export type CustomerStatus = (typeof customerStatuses)[number];
-export type LeadStatus = (typeof leadStatuses)[number];
 export type ProjectStatus = (typeof projectStatuses)[number];
 export type ProjectType = (typeof projectTypes)[number];
 export type PaymentStatus = (typeof paymentStatuses)[number];
 export type PaymentMethod = (typeof paymentMethods)[number];
-export type FollowupStatus = (typeof followupStatuses)[number];
-export type Priority = (typeof priorities)[number];
-export type Channel = (typeof channels)[number];
 export type DocumentType = (typeof documentTypes)[number];
 
 export type BaseDoc = {
@@ -41,17 +33,6 @@ export type Customer = BaseDoc & {
   facebookUrl?: string;
   source: CustomerSource;
   status: CustomerStatus;
-  note?: string;
-};
-
-export type Lead = BaseDoc & {
-  customerId: string;
-  customerName: string;
-  title: string;
-  estimatedValue: number;
-  status: LeadStatus;
-  source: CustomerSource;
-  followUpDate?: string;
   note?: string;
 };
 
@@ -87,19 +68,6 @@ export type Payment = BaseDoc & {
   status: PaymentStatus;
   paymentMethod: PaymentMethod;
   slipUrl?: string;
-  note?: string;
-};
-
-export type Followup = BaseDoc & {
-  customerId: string;
-  customerName: string;
-  projectId?: string;
-  projectName?: string;
-  title: string;
-  followUpDate: string;
-  status: FollowupStatus;
-  priority: Priority;
-  channel: Channel;
   note?: string;
 };
 

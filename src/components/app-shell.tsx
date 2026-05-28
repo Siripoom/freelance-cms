@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { BarChart3, BriefcaseBusiness, CreditCard, FileText, LayoutDashboard, ListTodo, LogOut, Settings, Users, Workflow } from "lucide-react";
+import { BarChart3, BriefcaseBusiness, CreditCard, FileText, LayoutDashboard, LogOut, Users } from "lucide-react";
 import { useAuth } from "@/hooks/use-auth";
 import { initLocale, useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -12,13 +12,10 @@ import { Button } from "@/components/ui";
 const nav = [
   { href: "/dashboard", key: "dashboard", icon: LayoutDashboard },
   { href: "/customers", key: "customers", icon: Users },
-  { href: "/pipeline", key: "pipeline", icon: Workflow },
   { href: "/projects", key: "projects", icon: BriefcaseBusiness },
   { href: "/payments", key: "payments", icon: CreditCard },
-  { href: "/followups", key: "followups", icon: ListTodo },
   { href: "/documents", key: "documents", icon: FileText },
   { href: "/reports", key: "reports", icon: BarChart3 },
-  { href: "/settings", key: "settings", icon: Settings },
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -39,15 +36,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-background lg:grid lg:grid-cols-[260px_1fr]">
-      <aside className="border-r border-blue-100 bg-white">
+    <div className="min-h-screen bg-background lg:grid lg:grid-cols-[248px_1fr]">
+      <aside className="border-r border-blue-100 bg-white lg:min-h-screen">
         <div className="flex h-16 items-center border-b border-blue-100 px-5">
           <div>
             <div className="text-lg font-semibold tracking-tight text-primary">Freelance CRM</div>
             <div className="max-w-[210px] truncate text-xs text-slate-500">{user.email}</div>
           </div>
         </div>
-        <nav className="grid gap-1 p-3">
+        <nav className="flex gap-1 overflow-x-auto border-b border-blue-100 p-2 lg:grid lg:overflow-visible lg:border-b-0 lg:p-3">
           {nav.map((item) => {
             const Icon = item.icon;
             const active = pathname === item.href;
@@ -56,7 +53,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex h-10 items-center gap-3 rounded-md px-3 text-sm font-medium",
+                  "flex h-10 shrink-0 items-center gap-2 rounded-md px-3 text-sm font-medium lg:gap-3",
                   active ? "bg-primary text-primary-foreground shadow-sm" : "text-slate-600 hover:bg-blue-50 hover:text-primary",
                 )}
               >

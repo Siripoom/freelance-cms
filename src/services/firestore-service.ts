@@ -12,7 +12,7 @@ import {
 import { db } from "@/lib/firebase/client";
 import type { BaseDoc } from "@/types/models";
 
-type CollectionName = "customers" | "leads" | "projects" | "payments" | "followups" | "documents";
+type CollectionName = "customers" | "projects" | "payments" | "documents";
 
 function requireDb() {
   if (!db) throw new Error("Firebase config is missing. Fill .env.local first.");

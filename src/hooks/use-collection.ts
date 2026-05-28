@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { createDoc, listDocs, patchDoc, removeDoc } from "@/services/firestore-service";
 import type { BaseDoc } from "@/types/models";
 
-type CollectionName = "customers" | "leads" | "projects" | "payments" | "followups" | "documents";
+type CollectionName = "customers" | "projects" | "payments" | "documents";
 
 export function useCollection<T extends BaseDoc>(uid: string | undefined, name: CollectionName) {
   const [items, setItems] = useState<T[]>([]);
